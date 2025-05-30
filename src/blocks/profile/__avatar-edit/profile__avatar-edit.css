@@ -1,0 +1,40 @@
+.profile__avatar-edit {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 36px;
+    left: 0px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5) url('../../../images/edit-icon.svg') center no-repeat;
+    background-size: 26px 26px;
+    background-position: center;
+    margin: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.profile__image-container:hover .profile__avatar-edit {
+    opacity: 1;
+}
+
+
+@media screen and (max-width: 480px) {
+    .profile__avatar-edit {
+        margin: 6px 0 0 133px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .profile__avatar-edit {
+        margin: 6px 0 0 108px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .profile__avatar-edit {
+        margin: 6px 0 0 79px;
+    }
+}

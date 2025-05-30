@@ -1,9 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\pages",
-    "\\scripts"
+    "\\src",
+    "\\src\\blocks",
+    "\\src\\blocks\\card\\__like-container",
+    "\\src\\blocks\\card\\__like-count",
+    "\\src\\blocks\\profile",
+    "\\src\\scripts"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }
