@@ -101,6 +101,10 @@ function handleProfileFormSubmit(evt) {
     const originalText = submitButton.textContent;
     submitButton.textContent = 'Сохранение...';
 
+    const inputs = profileForm.querySelectorAll('.popup__input');
+    inputs.forEach(input => input.disabled = true);
+    submitButton.disabled = true;
+
     updateUserInfo(nameInput.value, jobInput.value)
         .then(userData => {
             profileTitle.textContent = userData.name;
@@ -112,6 +116,8 @@ function handleProfileFormSubmit(evt) {
         })
         .finally(() => {
             submitButton.textContent = originalText;
+            inputs.forEach(input => input.disabled = false);
+            submitButton.disabled = false;
         });
 }
 
@@ -137,6 +143,10 @@ function handleCardFormSubmit(evt) {
     const originalText = submitButton.textContent;
     submitButton.textContent = 'Сохранение...';
 
+    const inputs = cardForm.querySelectorAll('.popup__input');
+    inputs.forEach(input => input.disabled = true);
+    submitButton.disabled = true;
+
     addNewCard(cardNameInput.value, cardLinkInput.value)
         .then(newCard => {
             renderCard(newCard, userId);
@@ -144,7 +154,11 @@ function handleCardFormSubmit(evt) {
             closeModal(cardPopup);
         })
         .catch(err => console.error('Ошибка:', err))
-        .finally(() => submitButton.textContent = originalText);
+        .finally(() => {
+            submitButton.textContent = originalText;
+            inputs.forEach(input => input.disabled = false);
+            submitButton.disabled = false;
+        });
 }
 
 function handleAvatarFormSubmit(evt) {
@@ -153,13 +167,21 @@ function handleAvatarFormSubmit(evt) {
     const originalText = submitButton.textContent;
     submitButton.textContent = 'Сохранение...';
 
+    const input = avatarForm.querySelector('.popup__input');
+    input.disabled = true;
+    submitButton.disabled = true;
+
     updateAvatar(avatarLinkInput.value)
         .then(userData => {
             profileAvatar.style.backgroundImage = `url(${userData.avatar})`;
             closeModal(avatarPopup);
         })
         .catch(err => console.log('Ошибка:', err))
-        .finally(() => submitButton.textContent = originalText);
+        .finally(() => {
+            submitButton.textContent = originalText;
+            input.disabled = false;
+            submitButton.disabled = false;
+        });
 }
 
 
